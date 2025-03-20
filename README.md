@@ -17,3 +17,7 @@ I learned how to serve an HTML file by enhancing the `handle_connection` functio
 I implemented conditional response logic in the handle_connection method, checking the request line to serve different pages based on the path. For the path /, the server responds with a 200 OK status and hello.html. For any other path (e.g., /bad), it returns a 404 NOT FOUND status and 404.html. Specifically, if the status line is GET / HTTP/1.1, the server returns hello.html with a success status. Otherwise, it returns a 404 error and the 404.html error page. Refactoring was introduced to improve code cleanliness and maintainability, splitting the response construction into separate functions. This enhances code readability and facilitates future scalability.
 
 ![Commit 3 screen capture](/assets/images/commit3.png)
+
+## Commit 4 Reflection Notes
+
+I simulated a performance bottleneck with a /sleep route, pausing for 10 seconds using thread::sleep(). This demonstrated a single-threaded server's behavior under delay. Opening /sleep blocked all other requests, including the normal / route, until the delay finished. This highlighted the limitations of single-threaded architecture and the necessity of multithreading or asynchronous handling for scalability in real-world web servers, emphasizing the link between concurrency and performance.
