@@ -21,3 +21,7 @@ I implemented conditional response logic in the handle_connection method, checki
 ## Commit 4 Reflection Notes
 
 I simulated a performance bottleneck with a /sleep route, pausing for 10 seconds using thread::sleep(). This demonstrated a single-threaded server's behavior under delay. Opening /sleep blocked all other requests, including the normal / route, until the delay finished. This highlighted the limitations of single-threaded architecture and the necessity of multithreading or asynchronous handling for scalability in real-world web servers, emphasizing the link between concurrency and performance.
+
+## Bonus Commit Reflection
+
+The build function enhances ThreadPool by introducing Result-based error handling, specifically for cases like a zero-sized pool, while maintaining backward compatibility through the existing new function. This improvement separates creation and error-handling logic, improving code clarity and robustness by allowing callers to handle potential errors gracefully. Aligning with idiomatic Rust's Result pattern, it increases the overall reliability and maintainability of the ThreadPool.
